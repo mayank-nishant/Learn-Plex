@@ -1,14 +1,14 @@
 import express from 'express';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config({ path: '/.env' })
+dotenv.config({ path: '/.env' });
 
 import userRouter from './routes/user.routes.js';
 import courseRouter from './routes/course.routes.js';
 import adminRouter from './routes/admin.routes.js';
 import connectDB from './db.js';
 
-connectDB();
+await connectDB();
 
 const app = express();
 
@@ -23,4 +23,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-
