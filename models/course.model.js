@@ -1,16 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const courseSchema = new Schema({
-    title: String,
-    description: String,
-    price: Number,
-    imageUrl: String,
-    creatorId: { type: Schema.Types.ObjectId, ref: "admin" },
-    students: [{ type: Schema.Types.ObjectId, ref: "user" }]
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  price: { type: Number, required: true },
+  imageUrl: { type: String },
+  creatorId: { type: Schema.Types.ObjectId, ref: 'admin', required: true },
+  students: [{ type: Schema.Types.ObjectId, ref: 'user' }],
 });
 
-const courseModel = mongoose.model("course", courseSchema);
+const courseModel = mongoose.model('course', courseSchema);
 
 export default courseModel;

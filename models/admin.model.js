@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const adminSchema = new Schema({
-    email: { type: String, unique: true },
-    password: String,
-    firstName: String,
-    lastName: String,
-    createdCourses: [{ type: Schema.Types.ObjectId, ref: "course" }]
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String },
+  createdCourses: [{ type: Schema.Types.ObjectId, ref: 'course' }],
 });
 
-const adminModel = mongoose.model("admin", adminSchema);
+const adminModel = mongoose.model('admin', adminSchema);
 
 export default adminModel;

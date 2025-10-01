@@ -1,13 +1,13 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const purchaseSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: "user" },     
-    courseId: { type: Schema.Types.ObjectId, ref: "course" },
-    purchaseDate: { type: Date, default: Date.now }
+  userId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+  courseId: { type: Schema.Types.ObjectId, ref: 'course', required: true },
+  purchaseDate: { type: Date, default: Date.now },
 });
 
-const purchaseModel = mongoose.model("purchase", purchaseSchema);
+const purchaseModel = mongoose.model('purchase', purchaseSchema);
 
 export default purchaseModel;
